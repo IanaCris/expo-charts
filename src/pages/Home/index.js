@@ -7,12 +7,12 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
 
 import CustomBarChart from '../../components/CustomBarChart';
-import { yourBusinessData } from '../../helpers/chartData';
+import { yourBusinessData, yourCompetitorData } from '../../helpers/chartData';
 
 import styles from './styles';
 
 function Home() {
-const [yourBusinessDimensions, setYourBusinessDimensions] = useState(null);
+const [yourBusinessDimensions, setYourBusinessDimensions] = useState(0);
 const [yourCompetitorDimensions, setYourCompetitorDimensions] = useState(null);
 const [goalsDimensions, setGoalsDimensions] = useState(null);
 
@@ -53,8 +53,13 @@ const [goalsDimensions, setGoalsDimensions] = useState(null);
               nativeEvent: {
                 layout: { width, height },
               },
-            }) => setYourBusinessDimensions({width, height})}
-            style={styles.businessAnalyticsChart}
+            }) => { setYourBusinessDimensions({ width, height })}}
+            style={[
+                styles.businessAnalyticsChart,
+                yourBusinessDimensions
+                ? styles.businessAnalyticsChartWithData
+                : styles.businessAnalyticsChartWithoutData
+              ]}
             >
              <CustomBarChart
               chartData={yourBusinessData}
@@ -64,7 +69,7 @@ const [goalsDimensions, setGoalsDimensions] = useState(null);
         </View>
         <View style={styles.businessAnalyticsContainer}>
           <View style={styles.businessAnalyticsData}>
-            <Text style={styles.businessAnalyticsTitle}>Seu Negócio</Text>
+            <Text style={styles.businessAnalyticsTitle}>Seu Concorrente</Text>
             <View style={styles.businessAnalyticsValueContainer}>
               <Text style={styles.businessAnalyticsValue}>R$ 7.600,00</Text>
               <Text
@@ -78,6 +83,24 @@ const [goalsDimensions, setGoalsDimensions] = useState(null);
             </View>
           </View>
           <View style={styles.businessAnalyticsChart} />
+          <View
+            onLayout={({
+              nativeEvent: {
+                layout: { width, height },
+              },
+            }) => { setYourCompetitorDimensions({ width, height })}}
+            style={[
+                styles.businessAnalyticsChart,
+                yourCompetitorDimensions
+                ? styles.businessAnalyticsChartWithData
+                : styles.businessAnalyticsChartWithoutData
+              ]}
+            >
+             <CustomBarChart
+              chartData={yourCompetitorData}
+              chartDimensions={yourCompetitorDimensions}
+             />
+          </View>
         </View>
         <TouchableOpacity
           onPress={handleProductReportPress}
