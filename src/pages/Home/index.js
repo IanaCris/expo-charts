@@ -13,7 +13,7 @@ import styles from './styles';
 
 function Home() {
 const [yourBusinessDimensions, setYourBusinessDimensions] = useState(0);
-const [yourCompetitorDimensions, setYourCompetitorDimensions] = useState(null);
+const [yourCompetitorDimensions, setYourCompetitorDimensions] = useState(0);
 const [goalsDimensions, setGoalsDimensions] = useState(null);
 
   const navigation = useNavigation();

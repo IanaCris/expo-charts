@@ -22,15 +22,36 @@ const styles = StyleSheet.create({
   goalsChart: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#ddd',
-    alignSelf: 'center',
     marginVertical: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   goalsDetailsContainer: {
     backgroundColor: '#F5F6FB',
     borderRadius: 8,
     padding: 16,
     flexDirection: 'row',
+  },
+  goalsChartWithData: {
+    backgroundColor: 'transparent',
+  },
+  goalsChartWithoutData: {
+    backgroundColor: 'transparent',
+    borderRadius: 8,
+    justifyContent: 'center',
+  },
+  goalsChartContainer: {
+    position: 'absolute',
+    alignItems: 'center',
+  },
+  goalsChartTitle: {
+    color: '#2b2b73',
+    fontWeight: 'bold',
+    fontSize: 36,
+  },
+  goalsChartSubtitle: {
+    color: '#2b2b73',
+    fontSize: 12,
   },
   thisMonthGoalsContainer: {
     flex: 1,
