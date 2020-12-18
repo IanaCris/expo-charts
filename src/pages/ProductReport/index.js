@@ -6,6 +6,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
 
 import CustomLineChart from '../../components/CustomLineChart';
+import { productReportData } from '../../helpers/chartData';
 
 import styles from './styles';
 
@@ -54,7 +55,7 @@ function ProductReport() {
               : styles.reportChartWithoutData
             ]}
         >
-          <CustomLineChart chartData={} chartDimensions={productReportDimensions} />
+          <CustomLineChart chartData={productReportData} chartDimensions={productReportDimensions} />
         </View>
         <RectButton style={styles.reportButton}>
           <Text style={styles.reportButtonText}>Ver Relatório Completo</Text>

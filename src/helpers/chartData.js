@@ -51,3 +51,5 @@ export const yourCompetitorData = [
     },
   },
 ];
+
+export const productReportData = [150,450, 50, 500, 250, 600, 350];
