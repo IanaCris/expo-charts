@@ -10,6 +10,7 @@ function CustomProgressChart({ chartData, chartDimensions }) {
         progress={chartData}
         progressColor='rgba(175,220,139, 0.7)'
         backgroundColor='rgba(175,220,139, 0.1)'
+        strokeWidth={6}
         style={{
           borderRadius: 8,
           width: chartDimensions.width,
